@@ -16,9 +16,15 @@ public class Engine {
         }
     }
 
+    public static void getMeetings() {
+        var name = Cli.greetings();
+        System.out.printf("Hello, %s!\n", name);
+    }
+
     public static void getCalc() {
         Scanner myUser = new Scanner(System.in);
         var name = Cli.greetings();
+        System.out.printf("Hello, %s!\n", name);
         var game = new Calc();
         game.getMessage();
 
@@ -43,6 +49,7 @@ public class Engine {
     public static void getEven() {
         Scanner myUser = new Scanner(System.in);
         var name = Cli.greetings();
+        System.out.printf("Hello, %s!\n", name);
         var game = new Even();
         game.getMessage();
 
@@ -68,6 +75,7 @@ public class Engine {
     public static void getGcd() {
         Scanner myUser = new Scanner(System.in);
         var name = Cli.greetings();
+        System.out.printf("Hello, %s!\n", name);
         var game = new Gcd();
         game.getMessage();
 
@@ -93,6 +101,7 @@ public class Engine {
     public static void getPrime() {
         Scanner myUser = new Scanner(System.in);
         var name = Cli.greetings();
+        System.out.printf("Hello, %s!\n", name);
         var game = new Prime();
         game.getMessage();
 
@@ -118,6 +127,7 @@ public class Engine {
     public static void getProgression() {
         Scanner myUser = new Scanner(System.in);
         var name = Cli.greetings();
+        System.out.printf("Hello, %s!\n", name);
         var game = new Progression();
         game.getMessage();
 
