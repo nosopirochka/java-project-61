@@ -16,7 +16,7 @@ public class App {
                 System.out.println("Exit..");
                 break;
             case 1:
-                Cli.greetings();
+                Engine.getMeetings();
                 break;
             case 2:
                 Engine.getEven();
