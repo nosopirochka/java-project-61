@@ -11,6 +11,10 @@ repositories {
     mavenCentral()
 }
 
+application {
+    mainClass = "hexlet.code.App"
+}
+
 dependencies {
     implementation("org.apache.commons:commons-lang3:3.14.0")
 }
