@@ -53,5 +53,6 @@ public class Progression {
             var diff = Integer.parseInt(number1) - Integer.parseInt(number2);
             return String.valueOf(Integer.parseInt(progression[index - 1]) + diff);
         }
+
     }
 }
