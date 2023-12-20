@@ -3,10 +3,6 @@ package hexlet.code.games;
 import org.apache.commons.lang3.RandomUtils;
 
 public class Gcd {
-    public void getMessage() {
-        System.out.println("Find the greatest common divisor of given numbers.");
-    }
-
     public String generateExample() {
         return String.format("%d %d", RandomUtils.nextInt(1, 100), RandomUtils.nextInt(1, 100));
     }
