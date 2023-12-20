@@ -3,12 +3,11 @@ package hexlet.code.games;
 import org.apache.commons.lang3.RandomUtils;
 
 public class Prime {
-    public void getMessage() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-    }
-
     public String generateExample() {
-        return String.valueOf(RandomUtils.nextInt(2, 30));
+        var minValueForNumber = 2;
+        var maxValueForNumber = 30;
+
+        return String.valueOf(RandomUtils.nextInt(minValueForNumber, maxValueForNumber));
     }
 
     public String getAnswer(String answer) {
