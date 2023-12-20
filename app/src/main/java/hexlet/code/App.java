@@ -9,12 +9,9 @@ public class App {
         System.out.println("Please enter the game number and press Enter.");
         System.out.print("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit\n");
         System.out.print("Your choice: ");
-        var choice = user.nextInt();
+        int choice = user.nextInt();
 
         switch (choice) {
-            case 0:
-                System.out.println("Exit..");
-                break;
             case 1:
                 Engine.getMeetings();
                 break;
@@ -32,6 +29,9 @@ public class App {
                 break;
             case 6:
                 Engine.getPrime();
+                break;
+            default:
+                System.out.println("Exit..");
                 break;
         }
     }
