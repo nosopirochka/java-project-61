@@ -4,7 +4,13 @@ import org.apache.commons.lang3.RandomUtils;
 
 public class Gcd {
     public String generateExample() {
-        return String.format("%d %d", RandomUtils.nextInt(1, 100), RandomUtils.nextInt(1, 100));
+        var minValueForNumber = 1;
+        var maxValueForNumber = 100;
+
+        var firstNumber = RandomUtils.nextInt(minValueForNumber, maxValueForNumber);
+        var secondNumber = RandomUtils.nextInt(minValueForNumber, maxValueForNumber);
+
+        return String.format("%d %d", firstNumber, secondNumber);
     }
 
     public String getAnswer(String answer) {
