@@ -4,15 +4,23 @@ import org.apache.commons.lang3.RandomUtils;
 
 
 public class Progression {
-    public void getMessage() {
-        System.out.println("What number is missing in the progression?");
-    }
-
     public String generateExample() {
-        var lengthForProgression = RandomUtils.nextInt(5, 10);
-        var step = RandomUtils.nextInt(5, 10);
-        var startNumber = RandomUtils.nextInt(1, 100);
-        var randomIndex = RandomUtils.nextInt(0, lengthForProgression - 1);
+        var minLengthOfProgression = 5;
+        var maxLengthOfProgression = 10;
+        var lengthForProgression = RandomUtils.nextInt(minLengthOfProgression, maxLengthOfProgression);
+
+        var minStep = 5;
+        var maxStep = 10;
+        var step = RandomUtils.nextInt(minStep, maxStep);
+
+        var minStartNumber = 1;
+        var maxStartNumber = 100;
+        var startNumber = RandomUtils.nextInt(minStartNumber, maxStartNumber);
+
+        var minRandomIndex = 0;
+        var maxRandomIndex = lengthForProgression - 1;
+        var randomIndex = RandomUtils.nextInt(minRandomIndex, maxRandomIndex);
+
         String[] arrayForProgression = new String[lengthForProgression];
         arrayForProgression[0] = String.valueOf(startNumber);
 
