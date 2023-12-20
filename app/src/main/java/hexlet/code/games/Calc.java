@@ -3,14 +3,12 @@ package hexlet.code.games;
 import org.apache.commons.lang3.RandomUtils;
 
 public class Calc {
-    public void getMessage() {
-
-        System.out.println("What is the result of the expression?");
-    }
-
     public String generateExample() {
-        var number1 = RandomUtils.nextInt(1, 10);
-        var number2 = RandomUtils.nextInt(1, 10);
+        var minValueForNumber = 1;
+        var maxValueForNumber = 10;
+        var number1 = RandomUtils.nextInt(minValueForNumber, maxValueForNumber);
+        var number2 = RandomUtils.nextInt(minValueForNumber, maxValueForNumber);
+
         return String.format("%s %s %s", String.valueOf(number1), Calc.generateSign(), String.valueOf(number2));
     }
 
