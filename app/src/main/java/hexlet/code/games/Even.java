@@ -3,13 +3,11 @@ package hexlet.code.games;
 import org.apache.commons.lang3.RandomUtils;
 
 public class Even {
-
-    public void getMessage() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-    }
-
     public String generateExample() {
-        int randomNumber = RandomUtils.nextInt(1, 100);
+        var minValueForNumber = 1;
+        var maxValueForNumber = 100;
+        int randomNumber = RandomUtils.nextInt(minValueForNumber, maxValueForNumber);
+
         return String.valueOf(randomNumber);
     }
 
