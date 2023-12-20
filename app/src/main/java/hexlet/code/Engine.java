@@ -30,9 +30,10 @@ public class Engine {
         var name = Cli.greetings();
         System.out.printf("Hello, %s!\n", name);
         var game = new Calc();
-        game.getMessage();
+        System.out.println("What is the result of the expression?");
+        var attempt = 3;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < attempt; i++) {
             var question = game.generateExample();
             System.out.printf("Question: %s\n", question);
             System.out.print("Your answer: ");
@@ -55,9 +56,10 @@ public class Engine {
         var name = Cli.greetings();
         System.out.printf("Hello, %s!\n", name);
         var game = new Even();
-        game.getMessage();
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        var attempt = 3;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < attempt; i++) {
             var question = game.generateExample();
             System.out.printf("Question: %s\n", question);
             System.out.print("Your answer: ");
@@ -81,9 +83,10 @@ public class Engine {
         var name = Cli.greetings();
         System.out.printf("Hello, %s!\n", name);
         var game = new Gcd();
-        game.getMessage();
+        System.out.println("Find the greatest common divisor of given numbers.");
+        var attempt = 3;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < attempt; i++) {
             var question = game.generateExample();
             System.out.printf("Question: %s\n", question);
             System.out.print("Your answer: ");
@@ -107,9 +110,10 @@ public class Engine {
         var name = Cli.greetings();
         System.out.printf("Hello, %s!\n", name);
         var game = new Prime();
-        game.getMessage();
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        var attempt = 3;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < attempt; i++) {
             var question = game.generateExample();
             System.out.printf("Question: %s\n", question);
             System.out.print("Your answer: ");
@@ -133,9 +137,10 @@ public class Engine {
         var name = Cli.greetings();
         System.out.printf("Hello, %s!\n", name);
         var game = new Progression();
-        game.getMessage();
+        System.out.println("What number is missing in the progression?");
+        var attempt = 3;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < attempt; i++) {
             var question = game.generateExample();
             System.out.printf("Question: %s\n", question);
             System.out.print("Your answer: ");
