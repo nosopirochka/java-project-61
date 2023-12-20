@@ -13,7 +13,7 @@ public class Prime {
     public String getAnswer(String answer) {
         var number = Integer.parseInt(answer);
         var stop = number / 2;
-        for (int i = 2; i < stop; i++) {
+        for (int i = 2; i <= stop; i++) {
             if (number % i == 0) {
                 return "no";
             }
