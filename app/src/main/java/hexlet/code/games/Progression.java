@@ -6,7 +6,12 @@ import org.apache.commons.lang3.RandomUtils;
 
 public class Progression {
     static final int AMOUNT_OF_EXAMPLES_AND_ANSWERS = 3;
-
+    static final int MIN_LENGTH_OF_PROGRESSION = 5;
+    static final int MAX_LENGTH_OF_PROGRESSION = 10;
+    static final int MIN_STEP = 1;
+    static final int MAX_STEP = 15;
+    static final int MIN_START_NUMBER_FOR_PROGRESSION = 1;
+    static final int MAX_START_NUMBER_FOR_PROGRESSION = 100;
     public static void playProgression() {
         var messageForGame = "What number is missing in the progression?";
         String[] example = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
@@ -20,17 +25,9 @@ public class Progression {
         Engine.playGame(messageForGame, example, answers);
     }
     public static String generateExample() {
-        var minLengthOfProgression = 5;
-        var maxLengthOfProgression = 10;
-        var lengthForProgression = RandomUtils.nextInt(minLengthOfProgression, maxLengthOfProgression);
-
-        var minStep = 2;
-        var maxStep = 15;
-        var step = RandomUtils.nextInt(minStep, maxStep);
-
-        var minStartNumber = 1;
-        var maxStartNumber = 100;
-        var startNumber = RandomUtils.nextInt(minStartNumber, maxStartNumber);
+        var lengthForProgression = RandomUtils.nextInt(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
+        var step = RandomUtils.nextInt(MIN_STEP, MAX_STEP);
+        var startNumber = RandomUtils.nextInt(MIN_START_NUMBER_FOR_PROGRESSION, MAX_START_NUMBER_FOR_PROGRESSION);
 
         var minRandomIndex = 0;
         var maxRandomIndex = lengthForProgression - 1;
