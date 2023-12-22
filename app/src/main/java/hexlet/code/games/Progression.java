@@ -5,12 +5,13 @@ import org.apache.commons.lang3.RandomUtils;
 
 
 public class Progression {
+    static final int ATTEMPTS = 3;
+
     public static void playProgression() {
         var messageForGame = "What number is missing in the progression?";
-        var arraySize = 3;
-        String[] example = new String[arraySize];
-        String[] answers = new String[arraySize];
-        for (var i = 0; i < arraySize; i++) {
+        String[] example = new String[ATTEMPTS];
+        String[] answers = new String[ATTEMPTS];
+        for (var i = 0; i < ATTEMPTS; i++) {
             var exampleFromGenerate = generateExample();
             example[i] = exampleFromGenerate;
             var answerFromGenerate = getAnswer(exampleFromGenerate);
@@ -23,8 +24,8 @@ public class Progression {
         var maxLengthOfProgression = 10;
         var lengthForProgression = RandomUtils.nextInt(minLengthOfProgression, maxLengthOfProgression);
 
-        var minStep = 5;
-        var maxStep = 10;
+        var minStep = 2;
+        var maxStep = 15;
         var step = RandomUtils.nextInt(minStep, maxStep);
 
         var minStartNumber = 1;
