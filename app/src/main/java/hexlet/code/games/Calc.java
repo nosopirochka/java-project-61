@@ -4,13 +4,12 @@ import org.apache.commons.lang3.RandomUtils;
 import hexlet.code.Engine;
 
 public class Calc {
-
+    static final int AMOUNT_OF_EXAMPLES_AND_ANSWERS = 3;
     public static void playCalc() {
         var messageForGame = "What is the result of the expression?";
-        var arraySize = 3;
-        String[] example = new String[arraySize];
-        String[] answers = new String[arraySize];
-        for (var i = 0; i < arraySize; i++) {
+        String[] example = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
+        String[] answers = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
+        for (var i = 0; i < AMOUNT_OF_EXAMPLES_AND_ANSWERS; i++) {
             var exampleFromGenerate = generateExample();
             example[i] = exampleFromGenerate;
             var answerFromGenerate = getAnswer(exampleFromGenerate);

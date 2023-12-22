@@ -5,13 +5,13 @@ import org.apache.commons.lang3.RandomUtils;
 
 
 public class Progression {
-    static final int ATTEMPTS = 3;
+    static final int AMOUNT_OF_EXAMPLES_AND_ANSWERS = 3;
 
     public static void playProgression() {
         var messageForGame = "What number is missing in the progression?";
-        String[] example = new String[ATTEMPTS];
-        String[] answers = new String[ATTEMPTS];
-        for (var i = 0; i < ATTEMPTS; i++) {
+        String[] example = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
+        String[] answers = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
+        for (var i = 0; i < AMOUNT_OF_EXAMPLES_AND_ANSWERS; i++) {
             var exampleFromGenerate = generateExample();
             example[i] = exampleFromGenerate;
             var answerFromGenerate = getAnswer(exampleFromGenerate);
