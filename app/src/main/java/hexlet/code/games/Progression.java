@@ -7,10 +7,10 @@ import org.apache.commons.lang3.RandomUtils;
 public class Progression {
     public static void playProgression() {
         var messageForGame = "What number is missing in the progression?";
-        String[] example = new String[3];
-        String[] answers = new String[3];
-        var forTry = 3;
-        for (var i = 0; i < forTry; i++) {
+        var arraySize = 3;
+        String[] example = new String[arraySize];
+        String[] answers = new String[arraySize];
+        for (var i = 0; i < arraySize; i++) {
             var exampleFromGenerate = generateExample();
             example[i] = exampleFromGenerate;
             var answerFromGenerate = getAnswer(exampleFromGenerate);
