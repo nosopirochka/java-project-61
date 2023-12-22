@@ -1,10 +1,24 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import org.apache.commons.lang3.RandomUtils;
 
 
 public class Progression {
-    public String generateExample() {
+    public static void playProgression() {
+        var messageForGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String[] example = new String[3];
+        String[] answers = new String[3];
+        var forTry = 3;
+        for (var i = 0; i < forTry; i++) {
+            var exampleFromGenerate = generateExample();
+            example[i] = exampleFromGenerate;
+            var answerFromGenerate = getAnswer(exampleFromGenerate);
+            answers[i] = answerFromGenerate;
+        }
+        Engine.playGame(messageForGame, example, answers);
+    }
+    public static String generateExample() {
         var minLengthOfProgression = 5;
         var maxLengthOfProgression = 10;
         var lengthForProgression = RandomUtils.nextInt(minLengthOfProgression, maxLengthOfProgression);
@@ -33,7 +47,7 @@ public class Progression {
         return String.join(" ", arrayForProgression);
     }
 
-    public String getAnswer(String answer) {
+    public static String getAnswer(String answer) {
         var index = 0;
         var arrayFromExample = answer.split(" ");
         for (int i = 0; i < arrayFromExample.length; i++) {
