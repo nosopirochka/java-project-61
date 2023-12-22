@@ -7,10 +7,10 @@ public class Calc {
 
     public static void playCalc() {
         var messageForGame = "What is the result of the expression?";
-        String[] example = new String[3];
-        String[] answers = new String[3];
-        var forTry = 3;
-        for (var i = 0; i < forTry; i++) {
+        var arraySize = 3;
+        String[] example = new String[arraySize];
+        String[] answers = new String[arraySize];
+        for (var i = 0; i < arraySize; i++) {
             var exampleFromGenerate = generateExample();
             example[i] = exampleFromGenerate;
             var answerFromGenerate = getAnswer(exampleFromGenerate);
