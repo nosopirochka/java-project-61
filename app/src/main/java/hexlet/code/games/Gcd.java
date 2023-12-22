@@ -5,6 +5,9 @@ import org.apache.commons.lang3.RandomUtils;
 
 public class Gcd {
     static final int AMOUNT_OF_EXAMPLES_AND_ANSWERS = 3;
+    static final int MIN_VALUE_FOR_NUMBER = 1;
+    static final int MAX_VALUE_FOR_NUMBER = 100;
+
     public static void playGcd() {
         var messageForGame = "Find the greatest common divisor of given numbers.";
         String[] example = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
@@ -19,11 +22,8 @@ public class Gcd {
     }
 
     public static String generateExample() {
-        var minValueForNumber = 1;
-        var maxValueForNumber = 100;
-
-        var firstNumber = RandomUtils.nextInt(minValueForNumber, maxValueForNumber);
-        var secondNumber = RandomUtils.nextInt(minValueForNumber, maxValueForNumber);
+        var firstNumber = RandomUtils.nextInt(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+        var secondNumber = RandomUtils.nextInt(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
 
         return String.format("%d %d", firstNumber, secondNumber);
     }
