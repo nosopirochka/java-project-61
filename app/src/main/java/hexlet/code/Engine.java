@@ -3,12 +3,12 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    static final int ATTEMPTS = 3;
     public static void playGame(String message, String[] gameExamples, String[] gameAnswers) {
         var sc = new Scanner(System.in);
         var name = Cli.greetings();
         System.out.println(message);
-        var forTry = 3;
-        for (int i = 0; i < forTry; i++) {
+        for (int i = 0; i < ATTEMPTS; i++) {
             System.out.println("Question: " + gameExamples[i]);
             System.out.print("Your answer: ");
             var answer = sc.next();
