@@ -5,6 +5,8 @@ import hexlet.code.Engine;
 
 public class Calc {
     static final int AMOUNT_OF_EXAMPLES_AND_ANSWERS = 3;
+    static final int MIN_VALUE_FOR_NUMBER = 1;
+    static final int MAX_VALUE_FOR_NUMBER = 10;
     public static void playCalc() {
         var messageForGame = "What is the result of the expression?";
         String[] example = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
@@ -20,10 +22,8 @@ public class Calc {
 
     }
     public static String generateExample() {
-        var minValueForNumber = 1;
-        var maxValueForNumber = 10;
-        var number1 = RandomUtils.nextInt(minValueForNumber, maxValueForNumber);
-        var number2 = RandomUtils.nextInt(minValueForNumber, maxValueForNumber);
+        var number1 = RandomUtils.nextInt(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+        var number2 = RandomUtils.nextInt(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
 
         return String.format("%s %s %s", String.valueOf(number1), Calc.generateSign(), String.valueOf(number2));
     }
