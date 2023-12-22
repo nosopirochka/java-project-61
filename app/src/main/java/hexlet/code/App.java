@@ -2,6 +2,12 @@ package hexlet.code;
 
 import java.util.Scanner;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
+
 public class App {
     public static void main(String[] args) {
         Scanner user = new Scanner(System.in);
@@ -13,22 +19,22 @@ public class App {
 
         switch (choice) {
             case 1:
-                Engine.getMeetings();
+                Cli.greetings();
                 break;
             case 2:
-                Engine.getEven();
+                Even.playEven();
                 break;
             case 3:
-                Engine.getCalc();
+                Calc.playCalc();
                 break;
             case 4:
-                Engine.getGcd();
+                Gcd.playGcd();
                 break;
             case 5:
-                Engine.getProgression();
+                Progression.playProgression();
                 break;
             case 6:
-                Engine.getPrime();
+                Prime.playPrime();
                 break;
             default:
                 System.out.println("Exit..");
