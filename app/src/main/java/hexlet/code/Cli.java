@@ -9,6 +9,8 @@ public class Cli {
 
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        return scanner.next();
+        var name = scanner.next();
+        System.out.println("Hello, " + name + "!");
+        return name;
     }
 }
