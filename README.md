@@ -6,7 +6,7 @@ Brain Games - a game that will challenge your brain.
 
 ### Link to video of the application in action:
 
-Brain Games (even number): https://asciinema.org/a/TC8TFLk0GkF6KuZgzHlXKwQ79
+Brain Games (even number): https://asciinema.org/a/TC8TFLkoGkF6KuZgzHlXKwQ79
 
 Brain Games (calculate number): https://asciinema.org/a/e9cybujKEUtxX6RWUsz33bWOg
 
