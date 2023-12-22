@@ -6,7 +6,7 @@ import org.apache.commons.lang3.RandomUtils;
 
 public class Progression {
     public static void playProgression() {
-        var messageForGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        var messageForGame = "What number is missing in the progression?";
         String[] example = new String[3];
         String[] answers = new String[3];
         var forTry = 3;
