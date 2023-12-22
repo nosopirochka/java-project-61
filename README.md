@@ -12,6 +12,6 @@ Brain Games (calculate number): https://asciinema.org/a/e9cybujKEUtxX6RWUsz33bWO
 
 Brain Games (greates common divisor): https://asciinema.org/a/ytntfpyPBipVQdp5xNNpmh4JW
 
-Brain Games (arithmetic progression): htpps://asciinema.org/a/p4TxnfHrjq4ZUUfbtFsJnrB58
+Brain Games (arithmetic progression): https://asciinema.org/a/p4TxnfHrjq4ZUUfbtFsJnrB58
 
 Brain Games (prime number): https://asciinema.org/a/Q4Qq0JXPfKoDMw3MxMwG6AxFg
