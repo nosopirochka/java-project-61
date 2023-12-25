@@ -9,6 +9,7 @@ import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
 public class App {
+    static final int EXIT = 0;
     static final int GREET = 1;
     static final int EVEN = 2;
     static final int CALC = 3;
@@ -24,6 +25,9 @@ public class App {
         int choice = user.nextInt();
 
         switch (choice) {
+            case EXIT:
+                System.out.println("Exit..");
+                break;
             case GREET:
                 Cli.greetings();
                 break;
@@ -43,8 +47,9 @@ public class App {
                 Prime.playPrime();
                 break;
             default:
-                System.out.println("Exit..");
+                System.out.println("Wrong data.\nPlease restart the game!");
                 break;
         }
+        user.close();
     }
 }
