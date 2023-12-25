@@ -6,8 +6,12 @@ public class Engine {
     static final int ATTEMPTS = 3;
     public static void playGame(String message, String[] gameExamples, String[] gameAnswers) {
         var sc = new Scanner(System.in);
-        var name = Cli.greetings();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        var name = sc.next();
+        System.out.println("Hello, " + name + "!");
         System.out.println(message);
+
         for (int i = 0; i < ATTEMPTS; i++) {
             System.out.println("Question: " + gameExamples[i]);
             System.out.print("Your answer: ");
