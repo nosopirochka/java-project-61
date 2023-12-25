@@ -17,6 +17,7 @@ public class Engine {
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n", answer, gameAnswers[i]);
                 System.out.printf("Let's try again, %s!\n", name);
+                sc.close();
                 return;
             }
         }
