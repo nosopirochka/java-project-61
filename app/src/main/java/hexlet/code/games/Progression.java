@@ -24,6 +24,7 @@ public class Progression {
         }
         Engine.playGame(messageForGame, example, answers);
     }
+
     public static String generateExample() {
         var lengthForProgression = RandomUtils.nextInt(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
         var step = RandomUtils.nextInt(MIN_STEP, MAX_STEP);
