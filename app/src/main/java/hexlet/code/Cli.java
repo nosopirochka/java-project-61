@@ -11,5 +11,6 @@ public class Cli {
         System.out.print("May I have your name? ");
         var name = scanner.next();
         System.out.println("Hello, " + name + "!");
+        scanner.close();
     }
 }
