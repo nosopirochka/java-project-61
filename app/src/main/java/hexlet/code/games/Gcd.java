@@ -8,24 +8,28 @@ public class Gcd {
     static final int MIN_VALUE_FOR_NUMBER = 1;
     static final int MAX_VALUE_FOR_NUMBER = 100;
 
-    public static void playGcd() {
+    public static void run() {
         var messageForGame = "Find the greatest common divisor of given numbers.";
-        String[] example = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
-        String[] answers = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
+        var examplesAndAnswers = generateData();
+        Engine.playGame(messageForGame, examplesAndAnswers[0], examplesAndAnswers[1]);
+    }
+
+    public static String[][] generateData() {
+        var lengthOfArray = 2;
+        String[][] examplesAndAnswers = new String[lengthOfArray][AMOUNT_OF_EXAMPLES_AND_ANSWERS];
         for (var i = 0; i < AMOUNT_OF_EXAMPLES_AND_ANSWERS; i++) {
             var exampleFromGenerate = generateExample();
-            example[i] = exampleFromGenerate;
+            examplesAndAnswers[0][i] = exampleFromGenerate;
             var answerFromGenerate = getAnswer(exampleFromGenerate);
-            answers[i] = answerFromGenerate;
+            examplesAndAnswers[1][i] = answerFromGenerate;
         }
-        Engine.playGame(messageForGame, example, answers);
+
+        return examplesAndAnswers;
     }
 
     public static String generateExample() {
-        var firstNumber = RandomUtils.nextInt(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
-        var secondNumber = RandomUtils.nextInt(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
-
-        return String.format("%d %d", firstNumber, secondNumber);
+        var numbersForExample = Utils.getTwoNumbers(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+        return String.format("%d %d", numbersForExample[0], numbersForExample[1]);
     }
 
     public static String getAnswer(String answer) {
