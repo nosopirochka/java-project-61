@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import org.apache.commons.lang3.RandomUtils;
 
 
 public class Progression {
