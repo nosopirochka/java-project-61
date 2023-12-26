@@ -12,27 +12,33 @@ public class Progression {
     static final int MAX_STEP = 15;
     static final int MIN_START_NUMBER_FOR_PROGRESSION = 1;
     static final int MAX_START_NUMBER_FOR_PROGRESSION = 100;
-    public static void playProgression() {
+    public static void run() {
         var messageForGame = "What number is missing in the progression?";
-        String[] example = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
-        String[] answers = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
+        var examplesAndAnswers = generateData();
+        Engine.playGame(messageForGame, examplesAndAnswers[0], examplesAndAnswers[1]);
+    }
+
+    public static String[][] generateData() {
+        var lengthOfArray = 2;
+        String[][] examplesAndAnswers = new String[lengthOfArray][AMOUNT_OF_EXAMPLES_AND_ANSWERS];
         for (var i = 0; i < AMOUNT_OF_EXAMPLES_AND_ANSWERS; i++) {
             var exampleFromGenerate = generateExample();
-            example[i] = exampleFromGenerate;
+            examplesAndAnswers[0][i] = exampleFromGenerate;
             var answerFromGenerate = getAnswer(exampleFromGenerate);
-            answers[i] = answerFromGenerate;
+            examplesAndAnswers[1][i] = answerFromGenerate;
         }
-        Engine.playGame(messageForGame, example, answers);
+
+        return examplesAndAnswers;
     }
 
     public static String generateExample() {
-        var lengthForProgression = RandomUtils.nextInt(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
-        var step = RandomUtils.nextInt(MIN_STEP, MAX_STEP);
-        var startNumber = RandomUtils.nextInt(MIN_START_NUMBER_FOR_PROGRESSION, MAX_START_NUMBER_FOR_PROGRESSION);
+        var lengthForProgression = Utils.getOneNumber(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
+        var step = Utils.getOneNumber(MIN_STEP, MAX_STEP);
+        var startNumber = Utils.getOneNumber(MIN_START_NUMBER_FOR_PROGRESSION, MAX_START_NUMBER_FOR_PROGRESSION);
 
         var minRandomIndex = 0;
         var maxRandomIndex = lengthForProgression - 1;
-        var randomIndex = RandomUtils.nextInt(minRandomIndex, maxRandomIndex);
+        var randomIndex = Utils.getOneNumber(minRandomIndex, maxRandomIndex);
 
         String[] arrayForProgression = new String[lengthForProgression];
         arrayForProgression[0] = String.valueOf(startNumber);
@@ -55,10 +61,10 @@ public class Progression {
                 break;
             }
         }
-        return Progression.forGetAnswer(index, arrayFromExample);
+        return Progression.getDifference(index, arrayFromExample);
     }
 
-    public static String forGetAnswer(int index, String[] progression) {
+    public static String getDifference(int index, String[] progression) {
         if (index <= 1) {
             var number1 = progression[progression.length - 1];
             var number2 = progression[progression.length - 2];
