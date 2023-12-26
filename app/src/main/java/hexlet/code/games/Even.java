@@ -8,21 +8,27 @@ public class Even {
     static final int MIN_VALUE_FOR_NUMBER = 1;
     static final int MAX_VALUE_FOR_NUMBER = 100;
 
-    public static void playEven() {
+    public static void run() {
         var messageForGame = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[] example = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
-        String[] answers = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
+        var examplesAndAnswers = generateData();
+        Engine.playGame(messageForGame, examplesAndAnswers[0], examplesAndAnswers[1]);
+    }
+
+    public static String[][] generateData() {
+        var lengthOfArray = 2;
+        String[][] examplesAndAnswers = new String[lengthOfArray][AMOUNT_OF_EXAMPLES_AND_ANSWERS];
         for (var i = 0; i < AMOUNT_OF_EXAMPLES_AND_ANSWERS; i++) {
             var exampleFromGenerate = generateExample();
-            example[i] = exampleFromGenerate;
+            examplesAndAnswers[0][i] = exampleFromGenerate;
             var answerFromGenerate = getAnswer(exampleFromGenerate);
-            answers[i] = answerFromGenerate;
+            examplesAndAnswers[1][i] = answerFromGenerate;
         }
-        Engine.playGame(messageForGame, example, answers);
+
+        return examplesAndAnswers;
     }
 
     public static String generateExample() {
-        int randomNumber = RandomUtils.nextInt(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+        int randomNumber = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
 
         return String.valueOf(randomNumber);
     }
