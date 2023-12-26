@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import org.apache.commons.lang3.RandomUtils;
+
 
 public class Prime {
     static final int AMOUNT_OF_EXAMPLES_AND_ANSWERS = 3;
