@@ -32,22 +32,22 @@ public class App {
                 Cli.greetings();
                 break;
             case EVEN:
-                Even.playEven();
+                Even.run();
                 break;
             case CALC:
-                Calc.playCalc();
+                Calc.run();
                 break;
             case GCD:
-                Gcd.playGcd();
+                Gcd.run();
                 break;
             case PROGRESSION:
-                Progression.playProgression();
+                Progression.run();
                 break;
             case PRIME:
-                Prime.playPrime();
+                Prime.run();
                 break;
             default:
-                System.out.println("Wrong data.\nPlease restart the game!");
+                System.out.println("Wrong data. Please restart the game!");
                 break;
         }
         user.close();
