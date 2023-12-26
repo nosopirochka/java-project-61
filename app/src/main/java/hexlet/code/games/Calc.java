@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
-import org.apache.commons.lang3.RandomUtils;
 import hexlet.code.Engine;
+
 
 public class Calc {
     static final int AMOUNT_OF_EXAMPLES_AND_ANSWERS = 3;
