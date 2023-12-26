@@ -7,20 +7,26 @@ public class Prime {
     static final int AMOUNT_OF_EXAMPLES_AND_ANSWERS = 3;
     static final int MIN_VALUE_FOR_NUMBER = 2;
     static final int MAX_VALUE_FOR_NUMBER = 30;
-    public static void playPrime() {
+    public static void run() {
         var messageForGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] example = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
-        String[] answers = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
+        var examplesAndAnswers = generateData();
+        Engine.playGame(messageForGame, examplesAndAnswers[0], examplesAndAnswers[1]);
+    }
+
+    public static String[][] generateData() {
+        var lengthOfArray = 2;
+        String[][] examplesAndAnswers = new String[lengthOfArray][AMOUNT_OF_EXAMPLES_AND_ANSWERS];
         for (var i = 0; i < AMOUNT_OF_EXAMPLES_AND_ANSWERS; i++) {
             var exampleFromGenerate = generateExample();
-            example[i] = exampleFromGenerate;
+            examplesAndAnswers[0][i] = exampleFromGenerate;
             var answerFromGenerate = getAnswer(exampleFromGenerate);
-            answers[i] = answerFromGenerate;
+            examplesAndAnswers[1][i] = answerFromGenerate;
         }
-        Engine.playGame(messageForGame, example, answers);
+
+        return examplesAndAnswers;
     }
     public static String generateExample() {
-        return String.valueOf(RandomUtils.nextInt(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
+        return String.valueOf(Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
     }
 
     public static String getAnswer(String answer) {
