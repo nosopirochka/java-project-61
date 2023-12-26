@@ -1,13 +1,12 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import org.apache.commons.lang3.RandomUtils;
+
 
 public class Gcd {
     static final int AMOUNT_OF_EXAMPLES_AND_ANSWERS = 3;
     static final int MIN_VALUE_FOR_NUMBER = 1;
     static final int MAX_VALUE_FOR_NUMBER = 100;
-
     public static void run() {
         var messageForGame = "Find the greatest common divisor of given numbers.";
         var examplesAndAnswers = generateData();
