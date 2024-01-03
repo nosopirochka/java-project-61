@@ -26,15 +26,26 @@ public class Prime {
 
         return examplesAndAnswers;
     }
+
+    private static int makeNumber() {
+        return Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+    }
     public static String generateExample() {
-        return String.valueOf(Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
+        return String.valueOf(makeNumber());
     }
 
     public static String getAnswer(String answer) {
         var number = Integer.parseInt(answer);
         var stop = number / 2;
+
+        return makeAnswer(number, stop);
+    }
+
+    public static String makeAnswer(int number, int stop) {
         for (int i = 2; i <= stop; i++) {
-            if (number % i == 0) {
+            var truOrNot = number % i == 0;
+            var result = truOrNot ? "no" : "yes";
+            if (result.equals("no")) {
                 return "no";
             }
         }
