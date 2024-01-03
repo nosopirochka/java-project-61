@@ -28,7 +28,7 @@ public class Calc {
     }
 
     private static String[] makeExample(String[] signs) {
-        String[] array = new String[3];
+        String[] array = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
         array[0] = String.valueOf(Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
         array[2] = String.valueOf(Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
         var randomSign = signs[Utils.getOneNumber(0, signs.length - 1)];
