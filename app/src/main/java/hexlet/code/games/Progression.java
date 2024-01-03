@@ -31,25 +31,30 @@ public class Progression {
         return examplesAndAnswers;
     }
 
+    private static String[] makeProgression(int length, int step, int first) {
+        var minRandomIndex = 0;
+        var maxRandomIndex = length - 1;
+        var randomIndex = Utils.getOneNumber(minRandomIndex, maxRandomIndex);
+
+        String[] arrayForProgression = new String[length];
+        arrayForProgression[0] = String.valueOf(first);
+
+        for (int i = 1; i < length; i++) {
+            first += step;
+            arrayForProgression[i] = String.valueOf(first);
+        }
+        arrayForProgression[randomIndex] = "..";
+
+        return arrayForProgression;
+    }
+
     public static String generateExample() {
         var lengthForProgression = Utils.getOneNumber(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
         var step = Utils.getOneNumber(MIN_STEP, MAX_STEP);
         var startNumber = Utils.getOneNumber(MIN_START_NUMBER_FOR_PROGRESSION, MAX_START_NUMBER_FOR_PROGRESSION);
+        var progression = makeProgression(lengthForProgression, step, startNumber);
 
-        var minRandomIndex = 0;
-        var maxRandomIndex = lengthForProgression - 1;
-        var randomIndex = Utils.getOneNumber(minRandomIndex, maxRandomIndex);
-
-        String[] arrayForProgression = new String[lengthForProgression];
-        arrayForProgression[0] = String.valueOf(startNumber);
-
-        for (int i = 1; i < lengthForProgression; i++) {
-            startNumber += step;
-            arrayForProgression[i] = String.valueOf(startNumber);
-        }
-        arrayForProgression[randomIndex] = "..";
-
-        return String.join(" ", arrayForProgression);
+        return String.join(" ", progression);
     }
 
     public static String getAnswer(String answer) {
