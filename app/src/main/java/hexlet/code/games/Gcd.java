@@ -27,9 +27,15 @@ public class Gcd {
         return examplesAndAnswers;
     }
 
+    private static int makeNumberForGcd() {
+        return Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+    }
+
     public static String generateExample() {
-        var numbersForExample = Utils.getTwoNumbers(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
-        return String.format("%d %d", numbersForExample[0], numbersForExample[1]);
+        var numberForExample1 = makeNumberForGcd();
+        var numbersForExample2 = makeNumberForGcd();
+
+        return String.format("%d %d", numberForExample1, numbersForExample2);
     }
 
     public static String getAnswer(String answer) {
