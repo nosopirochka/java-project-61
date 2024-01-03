@@ -44,6 +44,6 @@ public class Even {
 
     public static String makeAnswer(int number) {
         var result = number % 2 == 0;
-        return result? "yes": "no";
+        return result ? "yes" : "no";
     }
 }
