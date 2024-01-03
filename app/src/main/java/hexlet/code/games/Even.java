@@ -27,18 +27,23 @@ public class Even {
         return examplesAndAnswers;
     }
 
-    public static String generateExample() {
-        int randomNumber = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+    private static int makeNumber() {
+        return Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+    }
 
-        return String.valueOf(randomNumber);
+    public static String generateExample() {
+        var number = makeNumber();
+
+        return String.valueOf(number);
     }
 
     public static String getAnswer(String answer) {
         var compareNumber = Integer.parseInt(answer);
-        if (compareNumber % 2 == 0) {
-            return "yes";
-        } else {
-            return "no";
-        }
+        return makeAnswer(compareNumber);
+    }
+
+    public static String makeAnswer(int number) {
+        var result = number % 2 == 0;
+        return result? "yes": "no";
     }
 }
