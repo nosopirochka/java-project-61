@@ -27,12 +27,20 @@ public class Calc {
         return examplesAndAnswers;
     }
 
-    public static String generateExample() {
-        var numbersForExample = Utils.getTwoNumbers(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
-        String[] signs = {"-", "+", "*"};
+    private static String[] makeExample(String[] signs) {
+        String[] array = new String[3];
+        array[0] = String.valueOf(Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
+        array[2] = String.valueOf(Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
         var randomSign = signs[Utils.getOneNumber(0, signs.length - 1)];
+        array[1] = randomSign;
 
-        return String.format("%d %s %d", numbersForExample[0], randomSign, numbersForExample[1]);
+        return array;
+    }
+
+    public static String generateExample() {
+        String[] signs = {"-", "+", "*"};
+
+        return String.join(" ", makeExample(signs));
     }
 
     public static String getAnswer(String example) {
