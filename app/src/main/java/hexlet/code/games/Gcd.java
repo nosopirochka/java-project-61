@@ -10,15 +10,15 @@ public class Gcd {
     static final int MAX_VALUE_FOR_NUMBER = 100;
     public static void run() {
         var messageForGame = "Find the greatest common divisor of given numbers.";
-        var examplesAndAnswers = generateData();
+        var examplesAndAnswers = getData();
         Engine.playGame(messageForGame, examplesAndAnswers[0], examplesAndAnswers[1]);
     }
 
-    public static String[][] generateData() {
+    public static String[][] getData() {
         var lengthOfArray = 2;
         String[][] examplesAndAnswers = new String[lengthOfArray][AMOUNT_OF_EXAMPLES_AND_ANSWERS];
         for (var i = 0; i < AMOUNT_OF_EXAMPLES_AND_ANSWERS; i++) {
-            var exampleFromGenerate = generateExample();
+            var exampleFromGenerate = getExample();
             examplesAndAnswers[0][i] = exampleFromGenerate;
             var answerFromGenerate = getAnswer(exampleFromGenerate);
             examplesAndAnswers[1][i] = answerFromGenerate;
@@ -31,7 +31,7 @@ public class Gcd {
         return Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
     }
 
-    public static String generateExample() {
+    public static String getExample() {
         var numberForExample1 = makeNumberForGcd();
         var numberForExample2 = makeNumberForGcd();
 
