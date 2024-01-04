@@ -33,9 +33,9 @@ public class Gcd {
 
     public static String generateExample() {
         var numberForExample1 = makeNumberForGcd();
-        var numbersForExample2 = makeNumberForGcd();
+        var numberForExample2 = makeNumberForGcd();
 
-        return String.format("%d %d", numberForExample1, numbersForExample2);
+        return String.format("%d %d", numberForExample1, numberForExample2);
     }
 
     public static String getAnswer(String answer) {
