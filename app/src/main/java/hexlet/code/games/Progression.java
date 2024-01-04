@@ -14,15 +14,15 @@ public class Progression {
     static final int MAX_START_NUMBER_FOR_PROGRESSION = 100;
     public static void run() {
         var messageForGame = "What number is missing in the progression?";
-        var examplesAndAnswers = generateData();
+        var examplesAndAnswers = getData();
         Engine.playGame(messageForGame, examplesAndAnswers[0], examplesAndAnswers[1]);
     }
 
-    public static String[][] generateData() {
+    public static String[][] getData() {
         var lengthOfArray = 2;
         String[][] examplesAndAnswers = new String[lengthOfArray][AMOUNT_OF_EXAMPLES_AND_ANSWERS];
         for (var i = 0; i < AMOUNT_OF_EXAMPLES_AND_ANSWERS; i++) {
-            var exampleFromGenerate = generateExample();
+            var exampleFromGenerate = getExample();
             examplesAndAnswers[0][i] = exampleFromGenerate;
             var answerFromGenerate = getAnswer(exampleFromGenerate);
             examplesAndAnswers[1][i] = answerFromGenerate;
@@ -48,7 +48,7 @@ public class Progression {
         return arrayForProgression;
     }
 
-    public static String generateExample() {
+    public static String getExample() {
         var lengthForProgression = Utils.getOneNumber(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
         var step = Utils.getOneNumber(MIN_STEP, MAX_STEP);
         var startNumber = Utils.getOneNumber(MIN_START_NUMBER_FOR_PROGRESSION, MAX_START_NUMBER_FOR_PROGRESSION);
