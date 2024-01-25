@@ -22,69 +22,26 @@ public class Progression {
         var lengthOfArray = 2;
         String[][] examplesAndAnswers = new String[lengthOfArray][AMOUNT_OF_EXAMPLES_AND_ANSWERS];
         for (var i = 0; i < AMOUNT_OF_EXAMPLES_AND_ANSWERS; i++) {
-            var exampleFromGenerate = getExample();
-            examplesAndAnswers[0][i] = exampleFromGenerate;
-            var answerFromGenerate = getAnswer(exampleFromGenerate);
-            examplesAndAnswers[1][i] = answerFromGenerate;
+
+            var lengthForProgression = Utils.getOneNumber(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
+            var step = Utils.getOneNumber(MIN_STEP, MAX_STEP);
+            var first = Utils.getOneNumber(MIN_START_NUMBER_FOR_PROGRESSION, MAX_START_NUMBER_FOR_PROGRESSION);
+            var indexOfSpace = Utils.getOneNumber(0, lengthForProgression - 1);
+            String[] arrayForProgression = new String[lengthForProgression];
+            arrayForProgression[0] = String.valueOf(first);
+
+            for (int j = 1; j < lengthForProgression; j++) {
+                arrayForProgression[j] = String.valueOf(first + j * step);
+            }
+
+            var answer = arrayForProgression[indexOfSpace];
+            arrayForProgression[indexOfSpace] = "..";
+            //запись варианта прогрессии в array
+            examplesAndAnswers[0][i] = String.join(" ", arrayForProgression);
+            //запись ответа в array
+            examplesAndAnswers[1][i] = answer;
         }
 
         return examplesAndAnswers;
-    }
-
-    private static String[] makeProgression(int length, int step, int first) {
-        var minRandomIndex = 0;
-        var maxRandomIndex = length - 1;
-        var randomIndex = Utils.getOneNumber(minRandomIndex, maxRandomIndex);
-
-        String[] arrayForProgression = new String[length];
-        arrayForProgression[0] = String.valueOf(first);
-
-        for (int i = 1; i < length; i++) {
-            first += step;
-            arrayForProgression[i] = String.valueOf(first);
-        }
-        arrayForProgression[randomIndex] = "..";
-
-        return arrayForProgression;
-    }
-
-    public static String getExample() {
-        var lengthForProgression = Utils.getOneNumber(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
-        var step = Utils.getOneNumber(MIN_STEP, MAX_STEP);
-        var startNumber = Utils.getOneNumber(MIN_START_NUMBER_FOR_PROGRESSION, MAX_START_NUMBER_FOR_PROGRESSION);
-        var progression = makeProgression(lengthForProgression, step, startNumber);
-
-        return String.join(" ", progression);
-    }
-
-    public static String getAnswer(String answer) {
-        var index = 0;
-        var arrayFromExample = answer.split(" ");
-        for (int i = 0; i < arrayFromExample.length; i++) {
-            if (arrayFromExample[i].equals("..")) {
-                index = i;
-                break;
-            }
-        }
-        return Progression.getDifference(index, arrayFromExample);
-    }
-
-    public static String getDifference(int index, String[] progression) {
-        if (index <= 1) {
-            var number1 = progression[progression.length - 1];
-            var number2 = progression[progression.length - 2];
-            var diff = Integer.parseInt(number1) - Integer.parseInt(number2);
-            if (index == 0) {
-                return String.valueOf(Integer.parseInt(progression[index + 1]) - diff);
-            } else {
-                return String.valueOf(Integer.parseInt(progression[index - 1]) + diff);
-            }
-        } else {
-            var number1 = progression[1];
-            var number2 = progression[0];
-            var diff = Integer.parseInt(number1) - Integer.parseInt(number2);
-            return String.valueOf(Integer.parseInt(progression[index - 1]) + diff);
-        }
-
     }
 }
