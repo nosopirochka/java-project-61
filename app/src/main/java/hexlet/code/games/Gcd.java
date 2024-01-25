@@ -25,7 +25,7 @@ public class Gcd {
 
             while (numberForExample2  != 0) {
                 var number3 = numberForExample1 % numberForExample2;
-                numberForExample1 = numberForExample2 ;
+                numberForExample1 = numberForExample2;
                 numberForExample2  = number3;
             }
             //запись ответа в array
