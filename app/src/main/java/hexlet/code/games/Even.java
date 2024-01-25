@@ -18,32 +18,21 @@ public class Even {
         var lengthOfArray = 2;
         String[][] examplesAndAnswers = new String[lengthOfArray][AMOUNT_OF_EXAMPLES_AND_ANSWERS];
         for (var i = 0; i < AMOUNT_OF_EXAMPLES_AND_ANSWERS; i++) {
-            var exampleFromGenerate = getExample();
+            var exampleFromGenerate = String.valueOf(Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
+            //запись примера в array
             examplesAndAnswers[0][i] = exampleFromGenerate;
-            var answerFromGenerate = getAnswer(exampleFromGenerate);
+            String answerFromGenerate;
+            boolean even = makeAnswer(exampleFromGenerate);
+            answerFromGenerate = even ? "yes" : "no";
+            //запись ответа в array
             examplesAndAnswers[1][i] = answerFromGenerate;
         }
 
         return examplesAndAnswers;
     }
 
-    private static int makeNumber() {
-        return Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
-    }
-
-    public static String getExample() {
-        var number = makeNumber();
-
-        return String.valueOf(number);
-    }
-
-    public static String getAnswer(String answer) {
+    public static boolean makeAnswer(String answer) {
         var compareNumber = Integer.parseInt(answer);
-        return makeAnswer(compareNumber);
-    }
-
-    public static String makeAnswer(int number) {
-        var result = number % 2 == 0;
-        return result ? "yes" : "no";
+        return compareNumber % 2 == 0;
     }
 }
