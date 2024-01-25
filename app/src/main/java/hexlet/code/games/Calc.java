@@ -18,41 +18,23 @@ public class Calc {
         var lengthOfArray = 2;
         String[][] examplesAndAnswers = new String[lengthOfArray][AMOUNT_OF_EXAMPLES_AND_ANSWERS];
         for (var i = 0; i < AMOUNT_OF_EXAMPLES_AND_ANSWERS; i++) {
-            var exampleFromGenerate = getExample();
-            examplesAndAnswers[0][i] = exampleFromGenerate;
-            var answerFromGenerate = getAnswer(exampleFromGenerate);
-            examplesAndAnswers[1][i] = answerFromGenerate;
+            String[] signs = {"-", "+", "*"};
+            var number1 = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+            var number2 = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+            var randomSign = signs[Utils.getOneNumber(0, signs.length - 1)];
+            var example = String.format("%d %s %d", number1, randomSign, number2);
+            //запись примера в array
+            examplesAndAnswers[0][i] = example;
+            var info = example.split(" ");
+            var answer = switch (info[1]) {
+                case "+" -> String.valueOf(Integer.parseInt(info[0]) + Integer.parseInt(info[2]));
+                case "*" -> String.valueOf(Integer.parseInt(info[0]) * Integer.parseInt(info[2]));
+                default -> String.valueOf(Integer.parseInt(info[0]) - Integer.parseInt(info[2]));
+            };
+            //запись ответа в array
+            examplesAndAnswers[1][i] = answer;
         }
 
         return examplesAndAnswers;
-    }
-
-    private static String[] makeExample(int number1, int number2, String sign) {
-        String[] array = new String[AMOUNT_OF_EXAMPLES_AND_ANSWERS];
-        array[0] = String.valueOf(number1);
-        array[2] = String.valueOf(number2);
-        array[1] = sign;
-
-        return array;
-    }
-
-    public static String getExample() {
-        String[] signs = {"-", "+", "*"};
-        var number1 = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
-        var number2 = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
-        var randomSign = signs[Utils.getOneNumber(0, signs.length - 1)];
-
-        return String.join(" ", makeExample(number1, number2, randomSign));
-    }
-
-    public static String getAnswer(String example) {
-        var info = example.split(" ");
-        if (info[1].equals("+")) {
-            return String.valueOf(Integer.parseInt(info[0]) + Integer.parseInt(info[2]));
-        } else if (info[1].equals("*")) {
-            return String.valueOf(Integer.parseInt(info[0]) * Integer.parseInt(info[2]));
-        } else {
-            return String.valueOf(Integer.parseInt(info[0]) - Integer.parseInt(info[2]));
-        }
     }
 }
