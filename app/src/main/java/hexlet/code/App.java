@@ -16,6 +16,8 @@ public class App {
     static final String GCD = "4";
     static final String PROGRESSION = "5";
     static final String PRIME = "6";
+
+
     public static void main(String[] args) {
         Scanner user = new Scanner(System.in);
 
