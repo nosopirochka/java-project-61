@@ -56,7 +56,9 @@ public class Progression {
             var number1 = arrayOfExample[arrayOfExample.length - 1];
             var number2 = arrayOfExample[arrayOfExample.length - 2];
             var diff = Integer.parseInt(number1) - Integer.parseInt(number2);
-            return index == 0 ? Integer.parseInt(arrayOfExample[index + 1]) - diff : Integer.parseInt(arrayOfExample[index - 1]) + diff;
+            return index == 0
+                    ? Integer.parseInt(arrayOfExample[index + 1]) - diff
+                    : Integer.parseInt(arrayOfExample[index - 1]) + diff;
         } else {
             var number1 = arrayOfExample[1];
             var number2 = arrayOfExample[0];
