@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
+import org.apache.commons.lang3.ArrayUtils;
 
 
 public class Progression {
@@ -39,7 +40,7 @@ public class Progression {
             }
 
             arrayForProgression[indexOfSpace] = "..";
-            var answer = String.valueOf(makeAnswer(indexOfSpace, arrayForProgression));
+            var answer = String.valueOf(makeAnswer(arrayForProgression));
             //запись варианта прогрессии в array
             examplesAndAnswers[0][i] = String.join(" ", arrayForProgression);
             //запись ответа в array
@@ -49,17 +50,18 @@ public class Progression {
     }
 
 
-    public static int makeAnswer(int index, String[] answer) {
+    public static int makeAnswer(String[] arrayOfExample) {
+        var index = ArrayUtils.indexOf(arrayOfExample, "..");
         if (index <= 1) {
-            var number1 = answer[answer.length - 1];
-            var number2 = answer[answer.length - 2];
+            var number1 = arrayOfExample[arrayOfExample.length - 1];
+            var number2 = arrayOfExample[arrayOfExample.length - 2];
             var diff = Integer.parseInt(number1) - Integer.parseInt(number2);
-            return index == 0 ? Integer.parseInt(answer[index + 1]) - diff : Integer.parseInt(answer[index - 1]) + diff;
+            return index == 0 ? Integer.parseInt(arrayOfExample[index + 1]) - diff : Integer.parseInt(arrayOfExample[index - 1]) + diff;
         } else {
-            var number1 = answer[1];
-            var number2 = answer[0];
+            var number1 = arrayOfExample[1];
+            var number2 = arrayOfExample[0];
             var diff = Integer.parseInt(number1) - Integer.parseInt(number2);
-            return Integer.parseInt(answer[index - 1]) + diff;
+            return Integer.parseInt(arrayOfExample[index - 1]) + diff;
         }
     }
 }
