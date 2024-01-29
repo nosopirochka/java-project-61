@@ -16,7 +16,9 @@ public class Calc {
         var messageForGame = "What is the result of the expression?";
         try {
             var examplesAndAnswers = getData();
-            Engine.playGame(messageForGame, examplesAndAnswers[INDEX_OF_EXAMPLES], examplesAndAnswers[INDEX_OF_ANSWERS]);
+            Engine.playGame(messageForGame,
+                    examplesAndAnswers[INDEX_OF_EXAMPLES],
+                    examplesAndAnswers[INDEX_OF_ANSWERS]);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
