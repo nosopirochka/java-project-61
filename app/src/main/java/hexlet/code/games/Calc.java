@@ -26,7 +26,7 @@ public class Calc {
     public static String[][] getData() throws Exception {
         String[][] examplesAndAnswers = new String[LENGTH_OF_ARRAY_WITH_EXAMPLES_AND_ANSWERS][Engine.COUNT_OF_ROUNDS];
         for (var i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            String[] signs = {"-", "+", "*", "\\", "\\", "\\"};
+            String[] signs = {"-", "+", "*"};
             var number1 = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
             var number2 = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
             var randomSign = signs[Utils.getOneNumber(0, signs.length - 1)];
