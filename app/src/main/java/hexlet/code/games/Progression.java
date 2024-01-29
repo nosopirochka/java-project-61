@@ -54,11 +54,7 @@ public class Progression {
             var number1 = answer[answer.length - 1];
             var number2 = answer[answer.length - 2];
             var diff = Integer.parseInt(number1) - Integer.parseInt(number2);
-            if (index == 0) {
-                return Integer.parseInt(answer[index + 1]) - diff;
-            } else {
-                return Integer.parseInt(answer[index - 1]) + diff;
-            }
+            return index == 0 ? Integer.parseInt(answer[index + 1]) - diff : Integer.parseInt(answer[index - 1]) + diff;
         } else {
             var number1 = answer[1];
             var number2 = answer[0];
