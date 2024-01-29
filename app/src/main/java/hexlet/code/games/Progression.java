@@ -39,7 +39,7 @@ public class Progression {
             }
 
             arrayForProgression[indexOfSpace] = "..";
-            var answer = String.valueOf(getAnswer(indexOfSpace, arrayForProgression));
+            var answer = String.valueOf(makeAnswer(indexOfSpace, arrayForProgression));
             //запись варианта прогрессии в array
             examplesAndAnswers[0][i] = String.join(" ", arrayForProgression);
             //запись ответа в array
@@ -49,7 +49,7 @@ public class Progression {
     }
 
 
-    public static int getAnswer(int index, String[] answer) {
+    public static int makeAnswer(int index, String[] answer) {
         if (index <= 1) {
             var number1 = answer[answer.length - 1];
             var number2 = answer[answer.length - 2];
