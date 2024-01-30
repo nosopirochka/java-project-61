@@ -4,7 +4,7 @@
 ### Description:
 Brain Games - a game that will challenge your brain.
 
-### Link to video of the application in action:
+### Video of the application working:
 
 Brain Games (even number): [![asciicast](https://asciinema.org/a/TC8TFLkoGkF6KuZgzHIXKwQ79.svg)](https://asciinema.org/a/TC8TFLkoGkF6KuZgzHIXKwQ79)
 
