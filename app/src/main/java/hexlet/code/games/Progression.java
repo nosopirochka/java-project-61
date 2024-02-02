@@ -4,6 +4,9 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 import org.apache.commons.lang3.ArrayUtils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Progression {
     static final int MIN_LENGTH_OF_PROGRESSION = 5;
@@ -12,45 +15,42 @@ public class Progression {
     static final int MAX_STEP = 15;
     static final int MIN_START_NUMBER_FOR_PROGRESSION = 1;
     static final int MAX_START_NUMBER_FOR_PROGRESSION = 100;
-    static final int INDEX_OF_EXAMPLES = 0;
-    static final int INDEX_OF_ANSWERS = 1;
 
 
     public static void run() {
         var messageForGame = "What number is missing in the progression?";
-        var examplesAndAnswers = getData();
-        Engine.playGame(messageForGame, examplesAndAnswers[INDEX_OF_EXAMPLES], examplesAndAnswers[INDEX_OF_ANSWERS]);
+        var examplesAndAnswers = generateDataForProgression();
+        Engine.playGame(messageForGame, examplesAndAnswers);
     }
 
 
-    public static String[][] getData() {
-        var lengthOfArray = 2;
-        String[][] examplesAndAnswers = new String[lengthOfArray][Engine.COUNT_OF_ROUNDS];
+    public static Map<String, String> generateDataForProgression() {
+        Map<String, String> examplesAndAnswers = new HashMap<>();
         for (var i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
 
-            var lengthForProgression = Utils.getOneNumber(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
-            var step = Utils.getOneNumber(MIN_STEP, MAX_STEP);
-            var first = Utils.getOneNumber(MIN_START_NUMBER_FOR_PROGRESSION, MAX_START_NUMBER_FOR_PROGRESSION);
-            var indexOfSpace = Utils.getOneNumber(0, lengthForProgression - 1);
-            String[] arrayForProgression = new String[lengthForProgression];
-            arrayForProgression[0] = String.valueOf(first);
+            var lengthOfProgression = Utils.getOneNumber(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
+            var stepOfProgression = Utils.getOneNumber(MIN_STEP, MAX_STEP);
+            var firstNumberOfProgression = Utils
+                    .getOneNumber(MIN_START_NUMBER_FOR_PROGRESSION, MAX_START_NUMBER_FOR_PROGRESSION);
+            var indexOfSpace = Utils.getOneNumber(0, lengthOfProgression - 1);
+            String[] arrayForProgression = new String[lengthOfProgression];
+            arrayForProgression[0] = String.valueOf(firstNumberOfProgression);
 
-            for (int j = 1; j < lengthForProgression; j++) {
-                arrayForProgression[j] = String.valueOf(first + j * step);
+            for (int j = 1; j < lengthOfProgression; j++) {
+                arrayForProgression[j] = String.valueOf(firstNumberOfProgression + j * stepOfProgression);
             }
 
             arrayForProgression[indexOfSpace] = "..";
-            var answer = String.valueOf(makeAnswer(arrayForProgression));
-            //запись варианта прогрессии в array
-            examplesAndAnswers[0][i] = String.join(" ", arrayForProgression);
-            //запись ответа в array
-            examplesAndAnswers[1][i] = answer;
+            var example = String.join(" ", arrayForProgression);
+            var answer = String.valueOf(searchNumberInSpace(arrayForProgression));
+            //recording the answer in Map
+            examplesAndAnswers.put(example, answer);
         }
         return examplesAndAnswers;
     }
 
 
-    public static int makeAnswer(String[] arrayOfExample) {
+    public static int searchNumberInSpace(String[] arrayOfExample) {
         var index = ArrayUtils.indexOf(arrayOfExample, "..");
         if (index <= 1) {
             var number1 = arrayOfExample[arrayOfExample.length - 1];
@@ -62,8 +62,8 @@ public class Progression {
         } else {
             var number1 = arrayOfExample[1];
             var number2 = arrayOfExample[0];
-            var diff = Integer.parseInt(number1) - Integer.parseInt(number2);
-            return Integer.parseInt(arrayOfExample[index - 1]) + diff;
+            var stepOfProgression = Integer.parseInt(number1) - Integer.parseInt(number2);
+            return Integer.parseInt(arrayOfExample[index - 1]) + stepOfProgression;
         }
     }
 }
