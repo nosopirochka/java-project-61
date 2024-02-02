@@ -3,40 +3,37 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import java.util.Map;
+import java.util.HashMap;
+
 
 public class Prime {
     static final int MIN_VALUE_FOR_NUMBER = 2;
     static final int MAX_VALUE_FOR_NUMBER = 30;
-    static final int INDEX_OF_EXAMPLES = 0;
-    static final int INDEX_OF_ANSWERS = 1;
 
 
     public static void run() {
         var messageForGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        var examplesAndAnswers = getData();
-        Engine.playGame(messageForGame, examplesAndAnswers[INDEX_OF_EXAMPLES], examplesAndAnswers[INDEX_OF_ANSWERS]);
+        var examplesAndAnswers = generateDataForPrime();
+        Engine.playGame(messageForGame, examplesAndAnswers);
     }
 
 
-    public static String[][] getData() {
-        var lengthOfArray = 2;
-        String[][] examplesAndAnswers = new String[lengthOfArray][Engine.COUNT_OF_ROUNDS];
+    public static Map<String, String> generateDataForPrime() {
+        Map<String, String> examplesAndAnswers = new HashMap<>();
         for (var i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            var exampleFromGenerate = String.valueOf(Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
-            var number = Integer.parseInt(exampleFromGenerate);
-            var answerFromGenerate = makeAnswer(number) ? "yes" : "no";
-            //запись примера в array
-            examplesAndAnswers[0][i] = exampleFromGenerate;
-            //запись ответа в array
-            examplesAndAnswers[1][i] = answerFromGenerate;
+            var example = String.valueOf(Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
+            var answer = getAnswerPrimeOrNot(Integer.parseInt(example)) ? "yes" : "no";
+            //recording the answer in Map
+            examplesAndAnswers.put(example, answer);
         }
         return examplesAndAnswers;
     }
 
 
-    public static boolean makeAnswer(int number) {
-        var stop = number / 2;
-        for (int i = 2; i <= stop; i++) {
+    public static boolean getAnswerPrimeOrNot(int number) {
+        var stopIndex = number / 2;
+        for (int i = 2; i <= stopIndex; i++) {
             var result = number % i == 0;
             if (result) {
                 return false;
