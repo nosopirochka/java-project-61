@@ -45,7 +45,7 @@ public class Progression {
             //recording the example in array
             examplesAndAnswers[i][INDEX_OF_EXAMPLE] = example;
             //recording the answer in array
-            examplesAndAnswers[i][INDEX_OF_ANSWER] = example;
+            examplesAndAnswers[i][INDEX_OF_ANSWER] = answer;
         }
         return examplesAndAnswers;
     }
