@@ -2,13 +2,13 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-import java.util.Map;
-import java.util.HashMap;
-
 
 public class Calc {
     static final int MIN_VALUE_FOR_NUMBER = 1;
     static final int MAX_VALUE_FOR_NUMBER = 10;
+    static final int LENGTH_OF_ARRAY_WITH_EXAMPLE_AND_ANSWER = 2;
+    static final int INDEX_OF_EXAMPLE = 0;
+    static final int INDEX_OF_ANSWER = 1;
 
 
     public static void run() {
@@ -22,8 +22,8 @@ public class Calc {
     }
 
 
-    public static Map<String, String> generateDataForCalc() throws Exception {
-        Map<String, String> examplesAndAnswers = new HashMap<>();
+    public static String[][] generateDataForCalc() throws Exception {
+        var examplesAndAnswers = new String[Engine.COUNT_OF_ROUNDS][LENGTH_OF_ARRAY_WITH_EXAMPLE_AND_ANSWER];
         for (var i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             String[] signs = {"-", "+", "*"};
             var numberForExample1 = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
@@ -31,8 +31,10 @@ public class Calc {
             var randomSign = signs[Utils.getOneNumber(0, signs.length - 1)];
             var example = String.format("%d %s %d", numberForExample1, randomSign, numberForExample2);
             var answer = String.valueOf(calculate(numberForExample1, numberForExample2, randomSign));
-            //recording the answer in Map
-            examplesAndAnswers.put(example, answer);
+            //recording the example in array
+            examplesAndAnswers[i][INDEX_OF_EXAMPLE] = example;
+            //recording the answer in array
+            examplesAndAnswers[i][INDEX_OF_ANSWER] = answer;
         }
         return examplesAndAnswers;
     }

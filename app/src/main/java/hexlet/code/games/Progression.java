@@ -4,10 +4,6 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 import org.apache.commons.lang3.ArrayUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-
-
 public class Progression {
     static final int MIN_LENGTH_OF_PROGRESSION = 5;
     static final int MAX_LENGTH_OF_PROGRESSION = 10;
@@ -15,6 +11,9 @@ public class Progression {
     static final int MAX_STEP = 15;
     static final int MIN_START_NUMBER_FOR_PROGRESSION = 1;
     static final int MAX_START_NUMBER_FOR_PROGRESSION = 100;
+    static final int LENGTH_OF_ARRAY_WITH_EXAMPLE_AND_ANSWER = 2;
+    static final int INDEX_OF_EXAMPLE = 0;
+    static final int INDEX_OF_ANSWER = 1;
 
 
     public static void run() {
@@ -24,8 +23,8 @@ public class Progression {
     }
 
 
-    public static Map<String, String> generateDataForProgression() {
-        Map<String, String> examplesAndAnswers = new HashMap<>();
+    public static String[][] generateDataForProgression() {
+        String[][] examplesAndAnswers = new String[Engine.COUNT_OF_ROUNDS][LENGTH_OF_ARRAY_WITH_EXAMPLE_AND_ANSWER];
         for (var i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
 
             var lengthOfProgression = Utils.getOneNumber(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
@@ -42,15 +41,17 @@ public class Progression {
 
             arrayForProgression[indexOfSpace] = "..";
             var example = String.join(" ", arrayForProgression);
-            var answer = String.valueOf(searchNumberInSpace(arrayForProgression));
-            //recording the answer in Map
-            examplesAndAnswers.put(example, answer);
+            var answer = String.valueOf(searchMissingNumber(arrayForProgression));
+            //recording the example in array
+            examplesAndAnswers[i][INDEX_OF_EXAMPLE] = example;
+            //recording the answer in array
+            examplesAndAnswers[i][INDEX_OF_ANSWER] = example;
         }
         return examplesAndAnswers;
     }
 
 
-    public static int searchNumberInSpace(String[] arrayOfExample) {
+    public static int searchMissingNumber(String[] arrayOfExample) {
         var index = ArrayUtils.indexOf(arrayOfExample, "..");
         if (index <= 1) {
             var number1 = arrayOfExample[arrayOfExample.length - 1];

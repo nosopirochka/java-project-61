@@ -1,13 +1,14 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import java.util.Map;
 
 public class Engine {
     public static final int COUNT_OF_ROUNDS = 3;
+    static final int INDEX_OF_EXAMPLE = 0;
+    static final int INDEX_OF_ANSWER = 1;
 
 
-    public static void playGame(String message, Map<String, String> examplesAndAnswers) {
+    public static void playGame(String message, String[][] examplesAndAnswers) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
@@ -15,16 +16,17 @@ public class Engine {
         System.out.println("Hello, " + name + "!");
         System.out.println(message);
 
-        for (var example: examplesAndAnswers.keySet()) {
-            System.out.println("Question: " + example);
+        for (var exampleAndAnswer: examplesAndAnswers) {
+            System.out.println("Question: " + exampleAndAnswer[INDEX_OF_EXAMPLE]);
             System.out.print("Your answer: ");
             var answer = scanner.next();
-            if (examplesAndAnswers.get(example).equals(answer)) {
+            var trueAnswer = exampleAndAnswer[INDEX_OF_ANSWER];
+            if (trueAnswer.equals(answer)) {
                 System.out.println("Correct!");
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n",
                         answer,
-                        examplesAndAnswers.get(example));
+                        trueAnswer);
                 System.out.printf("Let's try again, %s!\n", name);
                 scanner.close();
                 return;
