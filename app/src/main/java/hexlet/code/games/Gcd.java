@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
+import java.util.Arrays;
 
 public class Gcd {
     static final int MIN_VALUE_FOR_NUMBER = 1;

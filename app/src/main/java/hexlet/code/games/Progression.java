@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 import org.apache.commons.lang3.ArrayUtils;
+import java.util.Arrays;
 
 public class Progression {
     static final int MIN_LENGTH_OF_PROGRESSION = 5;
