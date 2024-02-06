@@ -7,6 +7,7 @@ import hexlet.code.games.Gcd;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
+
 public class App {
     static final String EXIT = "0";
     static final String GREET = "1";
