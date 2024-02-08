@@ -36,7 +36,7 @@ public class Prime {
         if (number <= 1) {
             return false;
         }
-        var stopIndex = number / 2;
+        var stopIndex = Math.sqrt(number);
         for (int i = 2; i <= stopIndex; i++) {
             var result = number % i == 0;
             if (result) {
