@@ -21,7 +21,7 @@ public class Even {
     public static String[][] generateDataForEven() {
         var examplesAndAnswers = new String[Engine.COUNT_OF_ROUNDS][LENGTH_OF_ARRAY_WITH_EXAMPLE_AND_ANSWER];
         for (var i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            var example = String.valueOf(Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
+            var example = String.valueOf(Utils.generateNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER));
             boolean evenOrNot = isEven(example);
             var answer = evenOrNot ? "yes" : "no";
             //recording the example in array

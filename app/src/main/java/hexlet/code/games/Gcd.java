@@ -21,8 +21,8 @@ public class Gcd {
     public static String[][] generateDataForGcd() {
         String[][] examplesAndAnswers = new String[Engine.COUNT_OF_ROUNDS][LENGTH_OF_ARRAY_WITH_EXAMPLE_AND_ANSWER];
         for (var i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            var numberForExample1 = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
-            var numberForExample2 = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+            var numberForExample1 = Utils.generateNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+            var numberForExample2 = Utils.generateNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
             var example = String.format("%d %d", numberForExample1, numberForExample2);
             var answer = String.valueOf(getGreatestCommonDivisor(numberForExample1, numberForExample2));
             //recording the example in array

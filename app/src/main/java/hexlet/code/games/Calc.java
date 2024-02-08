@@ -26,9 +26,9 @@ public class Calc {
         var examplesAndAnswers = new String[Engine.COUNT_OF_ROUNDS][LENGTH_OF_ARRAY_WITH_EXAMPLE_AND_ANSWER];
         for (var i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             String[] signs = {"-", "+", "*"};
-            var numberForExample1 = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
-            var numberForExample2 = Utils.getOneNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
-            var randomSign = signs[Utils.getOneNumber(0, signs.length - 1)];
+            var numberForExample1 = Utils.generateNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+            var numberForExample2 = Utils.generateNumber(MIN_VALUE_FOR_NUMBER, MAX_VALUE_FOR_NUMBER);
+            var randomSign = signs[Utils.generateNumber(0, signs.length - 1)];
             var example = String.format("%d %s %d", numberForExample1, randomSign, numberForExample2);
             var answer = String.valueOf(calculate(numberForExample1, numberForExample2, randomSign));
             //recording the example in array

@@ -27,11 +27,11 @@ public class Progression {
         String[][] examplesAndAnswers = new String[Engine.COUNT_OF_ROUNDS][LENGTH_OF_ARRAY_WITH_EXAMPLE_AND_ANSWER];
         for (var i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
 
-            var lengthOfProgression = Utils.getOneNumber(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
-            var stepOfProgression = Utils.getOneNumber(MIN_STEP, MAX_STEP);
+            var lengthOfProgression = Utils.generateNumber(MIN_LENGTH_OF_PROGRESSION, MAX_LENGTH_OF_PROGRESSION);
+            var stepOfProgression = Utils.generateNumber(MIN_STEP, MAX_STEP);
             var firstNumberOfProgression = Utils
-                    .getOneNumber(MIN_START_NUMBER_FOR_PROGRESSION, MAX_START_NUMBER_FOR_PROGRESSION);
-            var indexOfSpace = Utils.getOneNumber(0, lengthOfProgression - 1);
+                    .generateNumber(MIN_START_NUMBER_FOR_PROGRESSION, MAX_START_NUMBER_FOR_PROGRESSION);
+            var indexOfSpace = Utils.generateNumber(0, lengthOfProgression - 1);
             String[] arrayForProgression = new String[lengthOfProgression];
             arrayForProgression[0] = String.valueOf(firstNumberOfProgression);
 
