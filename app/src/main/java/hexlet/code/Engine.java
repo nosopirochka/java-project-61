@@ -2,7 +2,6 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-
 public class Engine {
     public static final int COUNT_OF_ROUNDS = 3;
     static final int INDEX_OF_EXAMPLE = 0;
