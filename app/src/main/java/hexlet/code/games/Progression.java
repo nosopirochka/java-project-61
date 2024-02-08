@@ -4,8 +4,6 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 import org.apache.commons.lang3.ArrayUtils;
 
-import java.io.IOException;
-
 public class Progression {
     static final int MIN_LENGTH_OF_PROGRESSION = 5;
     static final int MAX_LENGTH_OF_PROGRESSION = 10;
@@ -46,7 +44,7 @@ public class Progression {
         return examplesAndAnswers;
     }
 
-    public static String[] generateProgression (int lengthOfProgression,
+    public static String[] generateProgression(int lengthOfProgression,
                                                 int stepOfProgression,
                                                 int firstNumberOfProgression) {
         String[] arrayForProgression = new String[lengthOfProgression];
