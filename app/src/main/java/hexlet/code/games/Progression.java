@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-import org.apache.commons.lang3.ArrayUtils;
 
 public class Progression {
     static final int MIN_LENGTH_OF_PROGRESSION = 5;
@@ -17,9 +16,9 @@ public class Progression {
 
 
     public static void run() {
-            var messageForGame = "What number is missing in the progression?";
-            var examplesAndAnswers = generateDataForProgression();
-            Engine.playGame(messageForGame, examplesAndAnswers);
+        var messageForGame = "What number is missing in the progression?";
+        var examplesAndAnswers = generateDataForProgression();
+        Engine.playGame(messageForGame, examplesAndAnswers);
     }
 
 
@@ -33,14 +32,14 @@ public class Progression {
             var indexOfSpace = Utils.generateNumber(0, lengthOfProgression - 1);
             var arrayOfProgression = generateProgression(lengthOfProgression,
                     stepOfProgression, firstNumberOfProgression);
+            var answer = arrayOfProgression[indexOfSpace];
             arrayOfProgression[indexOfSpace] = "..";
             var example = String.join(" ", arrayOfProgression);
-            var answer = String.valueOf(searchMissingNumber(arrayOfProgression));
             //recording the example in array
             examplesAndAnswers[i][INDEX_OF_EXAMPLE] = example;
             //recording the answer in array
             examplesAndAnswers[i][INDEX_OF_ANSWER] = answer;
-            }
+        }
         return examplesAndAnswers;
     }
 
@@ -52,22 +51,5 @@ public class Progression {
             arrayForProgression[j] = String.valueOf(firstNumberOfProgression + j * stepOfProgression);
         }
         return arrayForProgression;
-    }
-
-    public static int searchMissingNumber(String[] arrayOfExample) {
-        var index = ArrayUtils.indexOf(arrayOfExample, "..");
-        if (index <= 1) {
-            var number1 = arrayOfExample[arrayOfExample.length - 1];
-            var number2 = arrayOfExample[arrayOfExample.length - 2];
-            var diff = Integer.parseInt(number1) - Integer.parseInt(number2);
-            return index == 0
-                    ? Integer.parseInt(arrayOfExample[index + 1]) - diff
-                    : Integer.parseInt(arrayOfExample[index - 1]) + diff;
-        } else {
-            var number1 = arrayOfExample[1];
-            var number2 = arrayOfExample[0];
-            var stepOfProgression = Integer.parseInt(number1) - Integer.parseInt(number2);
-            return Integer.parseInt(arrayOfExample[index - 1]) + stepOfProgression;
-        }
     }
 }
